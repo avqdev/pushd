@@ -36,6 +36,9 @@ exports['apns'] =
     # This setting not overrides the value for the parameter that is set in the payload fot event request.
     # category: 'show'
     # contentAvailable: true
+    # This setting allows not displaying any badge at all (always sets badge value to zero)
+    # Useful for legacy iOS apps without badge support/implementation
+    # disableBadge: true
     # Selects data keys which are allowed to be sent with the notification
     # Keep in mind that APNS limits notification payload size to 256 bytes
     payloadFilter: ['messageFrom']
