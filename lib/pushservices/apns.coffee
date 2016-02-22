@@ -40,13 +40,10 @@ class PushServiceAPNS
             if subOptions?.ignore_message isnt true and alert = payload.localizedMessage(info.lang)
                 note.alert = alert
 
-            if not @conf.disableBadge
-                badge = parseInt(info.badge)
-                if payload.incrementBadge
-                    badge += 1
-            else
-                badge = 0
-
+            badge = parseInt(payload.badge || info.badge)
+            if payload.incrementBadge
+                badge += 1
+            
             category = payload.category
             contentAvailable = payload.contentAvailable
 
