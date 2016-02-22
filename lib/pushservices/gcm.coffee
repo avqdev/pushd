@@ -28,6 +28,7 @@ class PushServiceGCM
                         note.addData 'title', title
                     if message = payload.localizedMessage(info.lang)
                         note.addData 'message', message
+                        note.addData 'msg', message
                 note.addData(key, value) for key, value of payload.data
                 @multicastQueue[messageKey] = {tokens: [info.token], subscribers: [subscriber], note: note}
 

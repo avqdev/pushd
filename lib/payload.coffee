@@ -22,6 +22,8 @@ class Payload
                 throw new Error("Invalid value for `#{key}'")
 
             switch key
+                # The following keys are filtered and do(may) not appear in the
+                # final payload as is
                 when 'title' then @title.default = value
                 when 'msg' then @msg.default = value
                 when 'sound' then @sound = value
@@ -30,6 +32,7 @@ class Payload
                 when 'category' then @category = value
                 when 'contentAvailable' then @contentAvailable = value != 'false'
                 else
+                    # The other keys appear in the final payload as is
                     if ([prefix, subkey] = key.split('.', 2)).length is 2
                         @[prefix][subkey] = value
                     else

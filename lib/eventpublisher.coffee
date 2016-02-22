@@ -35,7 +35,7 @@ class EventPublisher extends events.EventEmitter
             logger.verbose "Pushing message for event #{event.name}"
             logger.silly "data = #{JSON.stringify data}"
             logger.silly 'Title: ' + payload.localizedTitle('en')
-            logger.silly payload.localizedMessage('en')
+            logger.silly 'Message: ' + payload.localizedMessage('en')
 
             protoCounts = {}
             event.forEachSubscribers (subscriber, subOptions, done) =>
